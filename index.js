@@ -128,8 +128,7 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(inning, totalInnings) 
+/*function scoreboard(inning, totalInnings) 
 {
   let scores = {home: 0, away:0}
   for (var i = 1; i <= totalInnings; i++)
@@ -142,4 +141,42 @@ function scoreboard(inning, totalInnings)
 
 };
 
+
 console.log(scoreboard(inning, 9))
+*/
+
+function inning(){
+  const points = Math.round(Math.random() * 2);
+    return points;
+}
+
+//function for end game score
+function finalScore(inning,inningNumber){
+  let score = {Home: 0, Away:0};
+for (let i =0; i < inningNumber; i++){
+  score.away += inning();
+  score.home += inning();
+  
+}
+  return finalScore();
+}
+
+//function for score per inning
+function getInningScore(inning, inningNumber)
+  {
+    let score ={home: 0, away:0}
+    for (var i = 1; i <= inningNumber; i++)
+    {
+      score.away += inning();
+      score.home += inning();
+      console.log(`${i} inning: Away ${score.away} - Home ${score.home}`);
+    }
+    return `Final Score: Away ${score.away} - Home ${score.home}`;
+  };
+
+//function to return all in a statement
+function scoreboard(getInningScore, inning, inningNumber)
+  {
+    return getInningScore(inning, inningNumber); 
+  };
+  console.log(scoreboard(getInningScore, inning, 9));
